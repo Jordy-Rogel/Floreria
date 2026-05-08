@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Petalo De Seda</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+ 
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+  <script src="https://kit.fontawesome.com/6cfc57a943.js" crossorigin="anonymous"></script>
+    
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg px-4 shadow-sm">
+    
+      <i class="ri-flower-fill fs-4 text-danger me-2"></i> <span class="brand-name">Petalo De Seda</span>
+  
+    
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto me-2">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="ecosistema.html">Ecosistema</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        <li class="nav-item"><a class="nav-link" href="login.html">Iniciar sesión</a></li>
+        <li class="nav-item"><a class="nav-link" href="actualizar.html">Actualizar datos</a></li>
+        <li class="nav-item"><a class="nav-link" href="loginadmin.html">Administrador</a></li>
+
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        
+        <a href="carrito.html" class="carro" class="text-white fs-4"><i class="fa-solid fa-cart-shopping"></i></a>
+      </div>
+    </div>
+    
+  </nav>
+
+  <div class="container my-4 d-flex justify-content-center">
+    <form class="d-flex w-75">
+      <input class="form-control me-2" type="search" placeholder="Buscar..." />
+      <button class="btn-search" type="submit"><i class="ri-search-line"></i></button>
+    </form>
+  </div>
+
+  <div class="container d-flex flex-wrap justify-content-center gap-4 mb-5">
+    <div class="iconos">
+      <a href="rosas.html" class="text-white text-decoration-none">
+        <img src="img/Rosas.avif" alt="Rosas"><br>Rosas
+      </a>
+    </div>
+    <div class="iconos">
+      <a href="eternas.html" class="text-white text-decoration-none">
+        <img src="img/eterna.jpg" alt="Eternas"><br>Eternas
+      </a>
+    </div>
+    <div class="iconos">
+      <a href="tulipanes.html" class="text-white text-decoration-none">
+        <img src="img/tulipan.jpg" alt="Tulipanes"><br>Tulipanes
+      </a>
+    </div>
+    <div class="iconos">
+      <a href="girasol.html" class="text-white text-decoration-none">
+        <img src="img/girasol.webp" alt="Girasol"><br>Girasol
+      </a>
+    </div>
+    <div class="iconos">
+      <a href="lirios.html" class="text-white text-decoration-none">
+        <img src="img/lirios.jpg" alt="Lirios"><br>  Lirios
+      </a>
+    </div>
+    <div class="iconos ">
+      <a href="clavel.html" class="text-white text-decoration-none">
+        <img src="img/clavel.avif" alt="Clavel"><br>  Clavel
+      </a>
+    </div>
+  </div>
+
+ 
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card h-100">
+          <img src="img/arr1.jpg" class="card-img-top" alt="producto" />
+          <div class="card-body text-center">
+            <p class="card-title">Rosa y Tulipan</p>
+            <p class="card-text">$80</p>
+             <button class="btn btn-outline-secondary mb-2 mt-2" data-bs-toggle="modal" data-bs-target="#modalArregloFlor">
+      Ver detalles
+    </button>
+            <button class="btn btn-primary w-60">Añadir al carrito</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="modalArregloFlor" tabindex="-1" aria-labelledby="modalArregloFlorLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" style="background-color: rgb(9, 9, 19);">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalArregloFlorLabel" style="color: burlywood;">Arreglo Floral – Petalo de Seda</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <div class="modal-body text-center">
+        <img src="img/arr1.jpg" alt="Arreglo Floral" class="img-fluid mb-3" style="max-height: 400px;">
+        <p style="color: #d9d9d9; font-size: 16px;">
+          Este arreglo incluye rosas rojas, lirios rosados y nube blanca, presentado en un jarrón de cristal con cinta roja. Ideal para celebrar amor, elegancia y momentos especiales.
+        </p>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="img/arr2.jpg" class="card-img-top" alt="producto" />
+          <div class="card-body text-center">
+            <p class="card-title">Arreglo eterno</p>
+            <p class="card-text">$20</p>
+             <button class="btn btn-outline-secondary mb-2 mt-2" data-bs-toggle="modal" data-bs-target="#modalEterno">
+  Ver detalles
+</button>
+            <button class="btn btn-primary">Añadir al carrito</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="modalEterno" tabindex="-1" aria-labelledby="modalEternoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" style="background-color: rgb(9, 9, 19);">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalEternoLabel" style="color: burlywood;">Arreglo Eterno – $20</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="img/arr2.jpg" alt="Arreglo Eterno" class="img-fluid mb-3" style="max-height: 400px;">
+        <p style="color: #d9d9d9; font-size: 16px;">Un detalle duradero con flores preservadas que simbolizan amor eterno. Ideal para regalar en aniversarios o momentos significativos.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="img/arr3.webp" class="card-img-top" alt="producto" />
+          <div class="card-body text-center">
+            <p class="card-title">Only Rosa</p>
+            <p class="card-text">$50</p>
+             <button class="btn btn-outline-secondary mb-2 mt-2" data-bs-toggle="modal" data-bs-target="#modalOnlyRosa">
+  Ver detalles
+</button>
+            <button class="btn btn-primary">Añadir al carrito</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="modalOnlyRosa" tabindex="-1" aria-labelledby="modalOnlyRosaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" style="background-color: rgb(9, 9, 19);">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalOnlyRosaLabel" style="color: burlywood;">Only Rosa – $50</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="img/arr3.webp" alt="Only Rosa" class="img-fluid mb-3" style="max-height: 400px;">
+        <p style="color: #d9d9d9; font-size: 16px;">Arreglo monocromático protagonizado por rosas rosadas en diferentes tonalidades, decoradas con ramas verdes estilizadas. Clásico, romántico y lleno de sutileza.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	   <div class="col">
+        <div class="card h-100">
+          <img src="img/arr4.jpg" class="card-img-top" alt="producto" />
+          <div class="card-body text-center">
+            <p class="card-title">Flores amarillas</p>
+            <p class="card-text">$50</p>
+             <button class="btn btn-outline-secondary mb-2 mt-2" data-bs-toggle="modal" data-bs-target="#modalAmarillas">
+  Ver detalles
+</button>
+            <button class="btn btn-primary">Añadir al carrito</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="modalAmarillas" tabindex="-1" aria-labelledby="modalAmarillasLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" style="background-color: rgb(9, 9, 19);">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalAmarillasLabel" style="color: burlywood;">Flores Amarillas – $50</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="img/arr4.jpg" alt="Flores Amarillas" class="img-fluid mb-3" style="max-height: 400px;">
+        <p style="color: #d9d9d9; font-size: 16px;">Arreglo vibrante compuesto por gerberas amarillas, margaritas y toques de flores blancas con follaje alegre. Transmite luz, energía y felicidad.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	   <div class="col">
+        <div class="card h-100">
+          <img src="img/arr5.jpg" class="card-img-top" alt="producto" />
+          <div class="card-body text-center">
+            <p class="card-title">Mixto eterno</p>
+            <p class="card-text">$50</p>
+            <button class="btn btn-outline-secondary mb-2 mt-2" data-bs-toggle="modal" data-bs-target="#modalMixtoEterno">
+  Ver detalles
+</button>
+            <button class="btn btn-primary">Añadir al carrito</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="modalMixtoEterno" tabindex="-1" aria-labelledby="modalMixtoEternoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" style="background-color: rgb(9, 9, 19);">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalMixtoEternoLabel" style="color: burlywood;">Mixto Eterno – $50</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="img/arr5.jpg" alt="Mixto Eterno" class="img-fluid mb-3" style="max-height: 400px;">
+        <p style="color:#d9d9d9; font-size: 16px;">Composición refinada de flores preservadas en tonalidades lavanda, crema y rosa pálido. Incluye rosas secas y ramitas ornamentales, ideal para decoración duradera.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	   <div class="col">
+        <div class="card h-100">
+          <img src="img/arr6.jpg" class="card-img-top" alt="producto" />
+          <div class="card-body text-center">
+            <p class="card-title">Rosa Blanca</p>
+            <p class="card-text">$50</p>
+            <button class="btn btn-outline-secondary mb-2 mt-2" data-bs-toggle="modal" data-bs-target="#modalRosaBlanca">
+  Ver detalles
+</button>
+            <button class="btn btn-primary">Añadir al carrito</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="modalRosaBlanca" tabindex="-1" aria-labelledby="modalRosaBlancaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" style="background-color: rgb(9, 9, 19);">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalRosaBlancaLabel" style="color: burlywood;">Rosa Blanca – $50</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="img/arr6.jpg" alt="Rosa Blanca" class="img-fluid mb-3" style="max-height: 400px;">
+        <p style="color: #d9d9d9; font-size: 16px;">Arreglo sereno de rosas blancas, lirios claros y detalles de nube. Presentado en un florero cilíndrico con cinta decorativa, representa paz, pureza y respeto.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	   <div class="col">
+        <div class="card h-100">
+          <img src="img/arr7.jpg" class="card-img-top" alt="producto" />
+          <div class="card-body text-center">
+            <p class="card-title">Mixto</p>
+            <p class="card-text">$50</p>
+             <button class="btn btn-outline-secondary mb-2 mt-2" data-bs-toggle="modal" data-bs-target="#modalMixto">
+  Ver detalles
+</button>
+            <button class="btn btn-primary">Añadir al carrito</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="modalMixto" tabindex="-1" aria-labelledby="modalMixtoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" style="background-color: rgb(9, 9, 19);">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalMixtoLabel" style="color: burlywood;">Arreglo Mixto – $50</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="img/arr7.jpg" alt="Arreglo Mixto" class="img-fluid mb-3" style="max-height: 400px;">
+        <p style="color:#d9d9d9; font-size: 16px;">Este colorido arreglo incluye rosas rojas, margaritas amarillas y flores naranjas. Ideal para alegrar cualquier espacio con energía y luz.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	   <div class="col">
+        <div class="card h-100">
+          <img src="img/arr8.jpg" class="card-img-top" alt="producto" />
+          <div class="card-body text-center">
+            <p class="card-title">50 Rosas</p>
+            <p class="card-text">$50</p>
+             <button class="btn btn-outline-secondary mb-2 mt-2" data-bs-toggle="modal" data-bs-target="#modal50Rosas">
+  Ver detalles
+</button>
+            <button class="btn btn-primary">Añadir al carrito</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="modal50Rosas" tabindex="-1" aria-labelledby="modal50RosasLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" style="background-color: rgb(9, 9, 19);">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal50RosasLabel" style="color: burlywood;">Arreglo 50 Rosas – $50</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="img/arr8.jpg" alt="50 Rosas" class="img-fluid mb-3" style="max-height: 400px;">
+        <p style="color:#d9d9d9; font-size: 16px;">Impactante arreglo con 50 rosas rojas, acentuadas por lirios rosados y flores blancas. Expresa amor y admiración en grande.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	   <div class="col">
+        <div class="card h-100">
+          <img src="img/arr9.jpg" class="card-img-top" alt="producto" />
+          <div class="card-body text-center">
+            <p class="card-title">Mega mixto</p>
+            <p class="card-text">$50</p>
+             <button class="btn btn-outline-secondary mb-2 mt-2" data-bs-toggle="modal" data-bs-target="#modalMegaMixto">
+  Ver detalles
+</button>
+            <button class="btn btn-primary">Añadir al carrito</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="modalMegaMixto" tabindex="-1" aria-labelledby="modalMegaMixtoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" style="background-color: rgb(9, 9, 19);">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalMegaMixtoLabel" style="color: burlywood">Arreglo Mega Mixto – $50</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="img/arr9.jpg" alt="Mega Mixto" class="img-fluid mb-3" style="max-height: 400px;">
+        <p style="color: #d9d9d9; font-size: 16px;">Una mezcla encantadora de rosas rosadas, gerberas y flores blancas. Un diseño vibrante que transmite cariño y alegría.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+
+
+<footer id="contacto" class="bg-dark text-light py-5 mt-5">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <h5 class="text-warning">📍 Dirección</h5>
+        <p>Calle Flor de Loto #123<br>Col. Jardines del Sol<br>Tejupilco, Estado de México</p>
+      </div>
+      <div class="col">
+        <h5 class="text-warning">📞 Teléfonos</h5>
+        <p>Whatsapp: +52 722 123 4567<br>Fijo: (01) 726 678 9012</p>
+      </div>
+      <div class="col">
+        <h5 class="text-warning">📧 Correo & Redes</h5>
+        <p>Email: contacto@petalodeseda.mx<br>
+          Facebook: /PetaloDeSeda<br>
+          Instagram: @petalodeseda
+        </p>
+      </div>
+    </div>
+
+    <div class="text-center pt-4 mt-4 border-top border-secondary">
+      <p class="mb-0">🌸 Pétalo de Seda • Florería artesanal con entrega local</p>
+      <small>© 2025 Todos los derechos reservados</small>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

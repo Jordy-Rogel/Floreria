@@ -1,0 +1,119 @@
+
+
+body {
+      background-color: #1e1e24;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .navbar {
+      background-color: #1e1e24;
+    }
+
+    .navbar-brand span {
+      font-weight: bold;
+    }
+
+    .navbar-nav .nav-link {
+      color: white;
+    }
+
+    .navbar-nav .nav-link.active {
+      color: #e91ee9;
+    }
+
+.brand-name {
+  font-size: 1.8rem; 
+  font-weight: bold; 
+  font-family: 'Playfair Display', serif; 
+  letter-spacing: 3px; 
+}
+
+    .nav-link,
+.navbar a.text-white,
+.carro {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.navbar a.text-white:hover,
+.carro:hover
+ {
+  color: #ff66c4;
+  text-decoration: underline;
+}
+
+
+.iconos {
+  margin: 35px;
+}
+
+
+.iconos img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  transition: border 0.3s ease, transform 0.3s ease;
+}
+
+
+.iconos img:hover {
+  border: 3px solid #ff66c4; 
+  transform: scale(1.05);    
+}
+
+    .btn-outline-primary, .btn-primary {
+      border-radius: 10px;
+    }
+
+    .btn-outline-dark {
+      color: white;
+      border-color: white;
+    }
+
+    .form-control {
+      border-radius: 50px;
+      padding-left: 20px;
+    }
+
+    .btn-search {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      background-color: #e91ee9;
+      color: white;
+      border: none;
+    }
+
+    .iconos img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 5px;
+    }
+
+    .card {
+      background-color: #2a2a35;
+      border: none;
+      border-radius: 15px;
+    }
+
+    .card img {
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      object-fit: cover;
+      height: 250px;
+    }
+
+    .card-title, .card-text {
+      color: white;
+    }
+
+    .btn-primary {
+      background-color: #e91ee9;
+      border: none;
+    }

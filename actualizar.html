@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Actualizar Datos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      background-color: #0a0913;
+    }
+    .card {
+      max-width: 600px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg px-4 shadow-sm">
+    
+      <i class="ri-flower-fill fs-4 text-danger me-2"></i> <span class="brand-name">Petalo De Seda</span>
+  
+    <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto me-2">
+        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="ecosistema.html">Ecosistema</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        <li class="nav-item"><a class="nav-link" href="login.html">Iniciar sesión</a></li>
+        <li class="nav-item"><a class="nav-link active" href="actualizar.html">Actualizar datos</a></li>
+        <li class="nav-item"><a class="nav-link" href="loginadmin.html">Administrador</a></li>
+
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        
+        <a href="carrito.html" class="carro" class="text-white fs-4"><i class="fa-solid fa-cart-shopping"></i></a>
+      </div>
+    </div>
+    
+  </nav>
+
+
+
+
+  <div class="container py-5">
+
+    
+
+    <div class="card shadow-sm" style="background-color: darkslategrey; color: antiquewhite;">
+      <div class="card-header bg-info text-white color">
+        <h5 class="mb-0">Actualizar Datos Personales</h5>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre completo</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Ej. Selene Garcia">
+          </div>
+          <div class="mb-3">
+            <label for="correo" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control" id="correo" placeholder="Ej. selene@email.com">
+          </div>
+          <div class="mb-3">
+            <label for="contrasena" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="contrasena" placeholder="********">
+          </div>
+          <div class="mb-3">
+            <label for="direccion" class="form-label">Dirección</label>
+            <input type="text" class="form-control" id="direccion" placeholder="Ej. Calle 123, Tejupilco">
+          </div>
+          <div class="mb-3">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="tel" class="form-control" id="telefono" placeholder="Ej. 722-123-4567">
+          </div>
+         <a href="index.html" class="btn btn-primary w-100" style="background-color: rgb(16, 12, 42);">Guardar Cambios</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

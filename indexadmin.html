@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de Administrador</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body style="background-color: rgb(12, 12, 25); color: aliceblue;">
+  <div class="container py-4">
+    <h2 class="text-center mb-4">Panel de Administrador 🌼</h2>
+
+    <div class="accordion" id="adminMenu">
+
+
+<div class="accordion-item">
+  <h2 class="accordion-header" id="headingUser">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUser">
+      Usuarios
+    </button>
+  </h2>
+  <div id="collapseUser" class="accordion-collapse collapse" data-bs-parent="#adminMenu">
+    <div class="accordion-body">
+      <button class="btn btn-primary me-2 btn-agregar-usuario">Agregar Usuario</button>
+      <button class="btn btn-warning me-2 btn-editar-usuario">Editar Usuario</button>
+     <button class="btn btn-danger me-2 btn-eliminar-usuario">Eliminar Usuario</button>
+      <button class="btn btn-info me-2 btn-buscar-usuario">Buscar Usuario</button>
+      <button class="btn btn-success me-2 btn-actualizar-usuario">Actualizar Usuario</button>
+    </div>
+  </div>
+</div>
+
+
+     
+<div class="accordion-item">
+  <h2 class="accordion-header" id="headingArrangement">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseArrangement">
+      Arreglos
+    </button>
+  </h2>
+  <div id="collapseArrangement" class="accordion-collapse collapse" data-bs-parent="#adminMenu">
+    <div class="accordion-body">
+      <button class="btn btn-primary me-2 btn-agregar-arreglo">Agregar Arreglo</button>
+      <button class="btn btn-warning me-2 btn-editar-arreglo">Editar Arreglo</button>
+      <button class="btn btn-danger me-2 btn-eliminar-arreglo">Eliminar Arreglo</button>
+    </div>
+  </div>
+</div>
+     
+     <div class="accordion-item">
+  <h2 class="accordion-header" id="headingCategory">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCategory">
+      Categorías
+    </button>
+  </h2>
+  <div id="collapseCategory" class="accordion-collapse collapse" data-bs-parent="#adminMenu">
+    <div class="accordion-body">
+      <button class="btn btn-primary me-2 btn-agregar-categoria">Agregar Categoría</button>
+      <button class="btn btn-warning me-2 btn-editar-categoria">Editar Categoría</button>
+       <button class="btn btn-danger me-2 btn-eliminar-categoria">Eliminar Categoría</button>
+    </div>
+  </div>
+</div>
+
+ <div class="accordion-item">
+  <h2 class="accordion-header" id="headingSales">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSales">
+      Registro de Ventas
+    </button>
+  </h2>
+  <div id="collapseSales" class="accordion-collapse collapse" data-bs-parent="#adminMenu">
+    <div class="accordion-body">
+      <button class="btn btn-primary me-2 btn-agregar-venta">Registrar Venta</button>
+  <button class="btn btn-danger me-2 btn-eliminar-venta">Eliminar Venta</button>
+  <button class="btn btn-secondary me-2 btn-historial-ventas">Historial de Ventas</button>
+    </div>
+  </div>
+</div>
+    
+<a href="index.html" class="btn btn-outline-danger">
+  <i class="bi bi-box-arrow-left"></i> Salir
+</a>
+<div id="form-container" class="mt-4"></div>
+
+<script>
+  const arreglosMock = [
+    { nombre: 'Romántico Rojo', descripcion: 'Arreglo con rosas rojas y follaje elegante.', precio: 450 },
+    { nombre: 'Sol de Verano', descripcion: 'Girasoles vibrantes con acentos amarillos.', precio: 380 },
+    { nombre: 'Primavera Pastel', descripcion: 'Tulipanes y lirios en tonos suaves.', precio: 520 },
+    { nombre: 'Orquídea Imperial', descripcion: 'Arreglo exótico con orquídeas blancas.', precio: 600 }
+  ];
+
+  function createArregloForm(action) {
+    const includeSearch = ['Editar', 'Eliminar'].includes(action);
+    const isReadOnly = action === 'Eliminar';
+
+    const searchSection = includeSearch ? `
+      <div class="mb-3">
+        <label class="form-label">Buscar Arreglo</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="search-arreglo" placeholder="Nombre del arreglo">
+          <button class="btn btn-outline-secondary" onclick="searchArreglo('${action}')">Buscar</button>
+        </div>
+      </div>
+    ` : '';
+
+    const formHTML = `
+      <div class="card mt-3">
+        <div class="card-header ${action === 'Eliminar' ? 'bg-danger' : 'bg-info'} text-white">
+          ${action} Arreglo
+        </div>
+        <div class="card-body">
+          ${searchSection}
+          <form onsubmit="handleArregloSubmit(event, '${action}')">
+            <div class="mb-3">
+              <label class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="input-nombre-arreglo" ${isReadOnly ? 'readonly' : ''}>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Descripción</label>
+              <textarea class="form-control" rows="3" id="input-descripcion-arreglo" ${isReadOnly ? 'readonly' : ''}></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Precio</label>
+              <input type="number" class="form-control" id="input-precio-arreglo" ${isReadOnly ? 'readonly' : ''}>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Imagen</label>
+              <input type="file" class="form-control" id="input-imagen-arreglo" ${isReadOnly ? 'disabled' : ''}>
+            </div>
+            <button type="submit" class="btn ${action === 'Eliminar' ? 'btn-danger' : 'btn-success'}">${action}</button>
+          </form>
+        </div>
+      </div>
+    `;
+    document.getElementById('form-container').innerHTML = formHTML;
+  }
+
+  function searchArreglo(action) {
+    const searchValue = document.getElementById('search-arreglo').value.trim().toLowerCase();
+    const found = arreglosMock.find(arr => arr.nombre.toLowerCase().includes(searchValue));
+
+    document.getElementById('input-nombre-arreglo').value = found ? found.nombre : '';
+    document.getElementById('input-descripcion-arreglo').value = found ? found.descripcion : '';
+    document.getElementById('input-precio-arreglo').value = found ? found.precio : '';
+  }
+
+  function handleArregloSubmit(event, action) {
+    event.preventDefault();
+
+    const nombre = document.getElementById('input-nombre-arreglo').value.trim();
+    const descripcion = document.getElementById('input-descripcion-arreglo').value.trim();
+    const precio = parseFloat(document.getElementById('input-precio-arreglo').value);
+
+    if (!nombre || !descripcion || isNaN(precio)) return;
+
+    const index = arreglosMock.findIndex(arr => arr.nombre === nombre);
+
+    if (action === 'Editar' && index !== -1) {
+      arreglosMock[index].descripcion = descripcion;
+      arreglosMock[index].precio = precio;
+      document.getElementById('form-container').innerHTML = ''; 
+    }
+
+    if (action === 'Eliminar' && index !== -1) {
+      arreglosMock.splice(index, 1);
+      document.getElementById('form-container').innerHTML = ''; 
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.btn-agregar-arreglo')?.addEventListener('click', () => createArregloForm('Agregar'));
+    document.querySelector('.btn-editar-arreglo')?.addEventListener('click', () => createArregloForm('Editar'));
+    document.querySelector('.btn-eliminar-arreglo')?.addEventListener('click', () => createArregloForm('Eliminar'));
+  });
+</script>
+
+    <div id="form-container" class="mt-4"></div>
+
+<script>
+  const categoriasMock = [
+    { nombre: 'Rosas', descripcion: 'Categoría de arreglos con rosas.' },
+    { nombre: 'Girasoles', descripcion: 'Categoría de arreglos con girasoles.' },
+    { nombre: 'Tulipanes', descripcion: 'Categoría de arreglos con tulipanes.' },
+    { nombre: 'Orquídeas', descripcion: 'Categoría de arreglos con orquídeas.' }
+  ];
+
+  function createCategoriaForm(action) {
+    const includeSearch = ['Editar', 'Eliminar'].includes(action);
+    const isReadOnly = action === 'Eliminar';
+
+    const searchSection = includeSearch ? `
+      <div class="mb-3">
+        <label class="form-label">Buscar Categoría</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="search-categoria" placeholder="Nombre de la categoría">
+          <button class="btn btn-outline-secondary" onclick="searchCategoria('${action}')">Buscar</button>
+        </div>
+      </div>
+    ` : '';
+
+    const formHTML = `
+      <div class="card mt-3">
+        <div class="card-header ${action === 'Eliminar' ? 'bg-danger' : 'bg-info'} text-white">
+          ${action} Categoría
+        </div>
+        <div class="card-body">
+          ${searchSection}
+          <form onsubmit="handleCategoriaSubmit(event, '${action}')">
+            <div class="mb-3">
+              <label class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="input-nombre-categoria" ${isReadOnly ? 'readonly' : ''}>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Descripción</label>
+              <textarea class="form-control" rows="3" id="input-descripcion-categoria" ${isReadOnly ? 'readonly' : ''}></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Imagen</label>
+              <input type="file" class="form-control" id="input-imagen-categoria" ${isReadOnly ? 'disabled' : ''}>
+            </div>
+            <button type="submit" class="btn ${action === 'Eliminar' ? 'btn-danger' : 'btn-success'}">${action}</button>
+          </form>
+        </div>
+      </div>
+    `;
+    document.getElementById('form-container').innerHTML = formHTML;
+  }
+
+  function searchCategoria(action) {
+    const searchValue = document.getElementById('search-categoria').value.trim().toLowerCase();
+    const found = categoriasMock.find(cat => cat.nombre.toLowerCase().includes(searchValue));
+
+    document.getElementById('input-nombre-categoria').value = found ? found.nombre : '';
+    document.getElementById('input-descripcion-categoria').value = found ? found.descripcion : '';
+    
+  }
+
+  function handleCategoriaSubmit(event, action) {
+    event.preventDefault();
+
+    const nombre = document.getElementById('input-nombre-categoria').value.trim();
+    const descripcion = document.getElementById('input-descripcion-categoria').value.trim();
+    const imagen = document.getElementById('input-imagen-categoria').files[0]; // Captura de imagen
+
+    if (!nombre || !descripcion) return;
+
+    const index = categoriasMock.findIndex(cat => cat.nombre === nombre);
+
+    if (action === 'Editar' && index !== -1) {
+      categoriasMock[index].descripcion = descripcion;
+      
+      document.getElementById('form-container').innerHTML = '';
+    }
+
+    if (action === 'Eliminar' && index !== -1) {
+      categoriasMock.splice(index, 1);
+      document.getElementById('form-container').innerHTML = '';
+    }
+
+    if (action === 'Agregar') {
+      categoriasMock.push({ nombre, descripcion });
+      document.getElementById('form-container').innerHTML = '';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.btn-agregar-categoria')?.addEventListener('click', () => createCategoriaForm('Agregar'));
+    document.querySelector('.btn-editar-categoria')?.addEventListener('click', () => createCategoriaForm('Editar'));
+    document.querySelector('.btn-eliminar-categoria')?.addEventListener('click', () => createCategoriaForm('Eliminar'));
+  });
+</script>
+
+<div id="form-container" class="mt-4"></div>
+<script>
+  function createUsuarioForm(action) {
+    const includeSearch = ['Editar', 'Buscar', 'Actualizar', 'Eliminar'].includes(action);
+    const isReadOnly = action === 'Eliminar';
+
+    const searchSection = includeSearch ? `
+      <div class="mb-3">
+        <label class="form-label">Buscar Usuario</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="search-usuario" placeholder="Nombre del usuario">
+          <button class="btn btn-outline-secondary" onclick="searchUsuario('${action}')">Buscar</button>
+        </div>
+      </div>
+    ` : '';
+
+    const formHTML = `
+      <div class="card mt-3">
+        <div class="card-header bg-danger text-white">
+          ${action} Usuario
+        </div>
+        <div class="card-body">
+          ${searchSection}
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="input-nombre-usuario" ${isReadOnly ? 'readonly' : ''}>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Correo</label>
+              <input type="email" class="form-control" id="input-correo-usuario" ${isReadOnly ? 'readonly' : ''}>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="input-password-usuario" ${isReadOnly ? 'readonly' : ''}>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Dirección</label>
+              <input type="text" class="form-control" id="input-direccion-usuario" ${isReadOnly ? 'readonly' : ''}>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Teléfono</label>
+              <input type="tel" class="form-control" id="input-telefono-usuario" ${isReadOnly ? 'readonly' : ''}>
+            </div>
+            <button type="submit" class="btn btn-danger">${action}</button>
+          </form>
+        </div>
+      </div>
+    `;
+    document.getElementById('form-container').innerHTML = formHTML;
+  }
+
+  function searchUsuario(action) {
+    const searchValue = document.getElementById('search-usuario').value.trim().toLowerCase();
+
+    const usuariosMock = [
+      { nombre: 'Ana López', correo: 'ana@example.com', password: 'ana123', direccion: 'Calle 1 #123', telefono: '555-1234' },
+      { nombre: 'Carlos Ruiz', correo: 'carlos@example.com', password: 'carlos456', direccion: 'Av. Central 456', telefono: '555-5678' },
+      { nombre: 'María Torres', correo: 'maria@example.com', password: 'maria789', direccion: 'Boulevard Sur 789', telefono: '555-9012' },
+      { nombre: 'Luis Gómez', correo: 'luis@example.com', password: 'luis321', direccion: 'Camino Real 321', telefono: '555-3456' }
+    ];
+
+    const found = usuariosMock.find(user => user.nombre.toLowerCase().includes(searchValue));
+    const fields = ['nombre', 'correo', 'password', 'direccion', 'telefono'];
+
+    fields.forEach(field => {
+      const input = document.getElementById(`input-${field}-usuario`);
+      input.value = found ? found[field] : '';
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.btn-agregar-usuario')?.addEventListener('click', () => createUsuarioForm('Agregar'));
+    document.querySelector('.btn-editar-usuario')?.addEventListener('click', () => createUsuarioForm('Editar'));
+    document.querySelector('.btn-buscar-usuario')?.addEventListener('click', () => createUsuarioForm('Buscar'));
+    document.querySelector('.btn-actualizar-usuario')?.addEventListener('click', () => createUsuarioForm('Actualizar'));
+    document.querySelector('.btn-eliminar-usuario')?.addEventListener('click', () => createUsuarioForm('Eliminar'));
+  });
+</script>
+<div id="form-container" class="mt-4"></div>
+<div id="ventas-visual" class="mt-4"></div>
+
+
+<script>
+  const ventas = [
+    { producto: 'Romántico Rojo', precio: 450, cantidad: 1 },
+    { producto: 'Sol de Verano', precio: 380, cantidad: 2 }
+  ];
+
+  let historialVisible = false;
+
+  function createVentaForm(action) {
+    const includeSearch = action === 'Eliminar';
+    const isReadOnly = action === 'Eliminar';
+
+    const searchSection = includeSearch ? `
+      <div class="mb-3">
+        <label class="form-label">Buscar Venta</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="search-venta" placeholder="Nombre del producto vendido">
+          <button class="btn btn-outline-secondary" onclick="searchVenta()">Buscar</button>
+        </div>
+      </div>
+    ` : '';
+
+    const formHTML = `
+      <div class="card mt-3">
+        <div class="card-header ${action === 'Eliminar' ? 'bg-danger' : 'bg-success'} text-white">
+          ${action} Venta
+        </div>
+        <div class="card-body">
+          ${searchSection}
+          <form onsubmit="handleVentaSubmit(event, '${action}')">
+            <div class="mb-3">
+              <label class="form-label">Producto</label>
+              <input type="text" class="form-control" id="input-producto-venta" ${isReadOnly ? 'readonly' : ''}>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Precio</label>
+              <input type="number" class="form-control" id="input-precio-venta" min="0" step="0.01" ${isReadOnly ? 'readonly' : ''}>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Cantidad</label>
+              <input type="number" class="form-control" id="input-cantidad-venta" min="1" ${isReadOnly ? 'readonly' : ''}>
+            </div>
+            <button type="submit" class="btn ${action === 'Eliminar' ? 'btn-danger' : 'btn-success'}">${action}</button>
+          </form>
+        </div>
+      </div>
+    `;
+    document.getElementById('form-container').innerHTML = formHTML;
+  }
+
+  function searchVenta() {
+    const searchValue = document.getElementById('search-venta').value.trim().toLowerCase();
+    const found = ventas.find(v => v.producto.toLowerCase().includes(searchValue));
+
+    document.getElementById('input-producto-venta').value = found ? found.producto : '';
+    document.getElementById('input-precio-venta').value = found ? found.precio : '';
+    document.getElementById('input-cantidad-venta').value = found ? found.cantidad : '';
+  }
+
+  function handleVentaSubmit(event, action) {
+    event.preventDefault();
+
+    const producto = document.getElementById('input-producto-venta').value.trim();
+    const precio = parseFloat(document.getElementById('input-precio-venta').value);
+    const cantidad = parseInt(document.getElementById('input-cantidad-venta').value);
+
+    if (!producto || isNaN(precio) || isNaN(cantidad)) return;
+
+    const index = ventas.findIndex(v => v.producto === producto);
+
+    if (action === 'Registrar') {
+      ventas.push({ producto, precio, cantidad });
+      document.getElementById('form-container').innerHTML = '';
+      if (historialVisible) renderVentasVisual();
+    }
+
+    if (action === 'Eliminar' && index !== -1) {
+      ventas.splice(index, 1);
+      document.getElementById('form-container').innerHTML = '';
+      if (historialVisible) renderVentasVisual();
+    }
+  }
+
+  function renderVentasVisual() {
+    const visualContainer = document.getElementById('ventas-visual');
+
+    if (ventas.length === 0) {
+      visualContainer.innerHTML = '<p class="text-muted">No hay ventas registradas.</p>';
+      return;
+    }
+
+    let total = 0;
+    let rows = ventas.map(v => {
+      const subtotal = v.precio * v.cantidad;
+      total += subtotal;
+      return `
+        <tr>
+          <td>${v.producto}</td>
+          <td>$${v.precio.toFixed(2)}</td>
+          <td>${v.cantidad}</td>
+          <td>$${subtotal.toFixed(2)}</td>
+        </tr>
+      `;
+    }).join('');
+
+    const tableHTML = `
+      <div class="card">
+        <div class="card-header bg-secondary text-white">Historial de Ventas</div>
+        <div class="card-body p-0">
+          <table class="table table-striped mb-0">
+            <thead>
+              <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rows}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3" class="text-end fw-bold">Total Acumulado</td>
+                <td class="fw-bold">$${total.toFixed(2)}</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    `;
+
+    visualContainer.innerHTML = tableHTML;
+  }
+
+  function toggleHistorialVentas() {
+    historialVisible = !historialVisible;
+    const visualContainer = document.getElementById('ventas-visual');
+    const btn = document.querySelector('.btn-historial-ventas');
+
+    if (historialVisible) {
+      renderVentasVisual();
+      btn.textContent = 'Ocultar Historial';
+    } else {
+      visualContainer.innerHTML = '';
+      btn.textContent = 'Historial de Ventas';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.btn-agregar-venta')?.addEventListener('click', () => createVentaForm('Registrar'));
+    document.querySelector('.btn-eliminar-venta')?.addEventListener('click', () => createVentaForm('Eliminar'));
+    document.querySelector('.btn-historial-ventas')?.addEventListener('click', toggleHistorialVentas);
+  });
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
